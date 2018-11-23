@@ -1,7 +1,7 @@
 library(tidyverse)
 library(ggrepel)
 
-dat<-read.csv(file = 'frackoff/frack-clean.csv')
+dat<-read.csv(file = 'frack-clean.csv')
 
 
 t<- dat %>% group_by(year, date.ym, region) %>%
@@ -10,7 +10,7 @@ t<- dat %>% group_by(year, date.ym, region) %>%
 
 labs <- t %>% filter(region != '') %>% group_by(region) %>% summarise(max = max(qq))
 
-pdf(file = 'frackoff/figs/cumulative-earthquakes.pdf', height=10)
+pdf(file = 'figs/cumulative-earthquakes.pdf', height=10)
 theme_set(theme_minimal())
 ggplot(t %>% filter(region != ''), aes(year, qq, group=region)) + 
   geom_line(size = 0.5, col='grey') +
@@ -22,3 +22,12 @@ ggplot(t %>% filter(region != ''), aes(year, qq, group=region)) +
   scale_x_continuous(breaks= seq(1988, 2018, 4))
 
 dev.off()
+
+#Insert a map as with https://earthquake.usgs.gov/research/induced/overview.php and have it so that whenever you 
+#click on the line, it pops up on the map as well 
+# https://stackoverflow.com/questions/31814037/integrating-time-series-graphs-and-leaflet-maps-using-r-shiny 
+
+
+
+
+

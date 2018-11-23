@@ -50,7 +50,8 @@ t %>% filter(qq > 400 & region !='') %>% summarise(unique(region))
 
 
 ## how to subset for a meaningful comparison? (i.e. regions are different areas. Focus on England only? YES.)
-## any other locations with fracking and earthquakes?
+## any other locations with fracking and earthquakes? NO - check to see if there has been testing - nottingham. 
+# dropdown list of stages in fracking, and another for regions
 
 Blackpool major
 
