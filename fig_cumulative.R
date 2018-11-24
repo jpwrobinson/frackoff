@@ -1,13 +1,9 @@
 library(tidyverse)
 library(ggrepel)
 library(funk)
-theme_set(theme_sleek())
+library(here)
 
-<<<<<<< HEAD
-dat<-read.csv(file = 'frack-clean.csv')
-=======
->>>>>>> da3a8d28051c7dfb95f30e7cd6a98aad4c8faa88
-
+setwd(here('frackoff'))
 
 dat<-read.csv(file = 'frack-clean.csv')
 
@@ -24,13 +20,10 @@ t <- rbind(anchor, data.frame(t))
 
 labs <- t %>% filter(region != '') %>% group_by(region) %>% summarise(max = max(qq))
 
-<<<<<<< HEAD
-pdf(file = 'figs/cumulative-earthquakes.pdf', height=10)
-theme_set(theme_minimal())
-=======
+
 pdf(file = 'figs/cumulative-earthquakes.pdf', height=10, width=8)
 theme_set(theme_sleek())
->>>>>>> da3a8d28051c7dfb95f30e7cd6a98aad4c8faa88
+
 ggplot(t %>% filter(region != ''), aes(year, qq, group=region)) + 
   geom_line(size = 0.5, col='grey') +
   geom_line(data = t %>% filter(region == 'LANCASHIRE'), 
@@ -48,18 +41,13 @@ dev.off()
 
 ranks<-t %>% group_by(year) %>% mutate(rank = dense_rank(desc(qq))) 
 
-<<<<<<< HEAD
-dev.off()
+
 
 #Insert a map as with https://earthquake.usgs.gov/research/induced/overview.php and have it so that whenever you 
 #click on the line, it pops up on the map as well 
 # https://stackoverflow.com/questions/31814037/integrating-time-series-graphs-and-leaflet-maps-using-r-shiny 
 
 
-
-
-
-=======
 t %>% filter(year == 2018) %>% data.frame()
 ranks %>% filter(region == 'LANCASHIRE') %>% data.frame()
->>>>>>> da3a8d28051c7dfb95f30e7cd6a98aad4c8faa88
+
