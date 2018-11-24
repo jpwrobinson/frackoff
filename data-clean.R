@@ -30,7 +30,7 @@ remove<-c('D & G', 'LOTHIAN', 'FIFE', 'GWYNEDD', 'STRATHCLYDE', 'HIGHLAND', 'EIR
           'MERTHYR TYDFIL', 'ARGYLL & BUTE', 'CARMARTHENSHIRE', 'CAERPHILLY', 'CARMARTHNSHIRE', 'WREXHAM', 'CONWY','PERTHSHIRE', 'MONMOUTHSHIRE', 
           'SHETLAND', 'BLAENAU GWENT', 'NORTH WALES', ' NW OF IRELAND',  'RENFREWSHIRE', 'NEATH PORT TALBOT', 'MOYLE', 
           "DUMF&GA", "GWYN", "LLEYN", "HANTS", "GWYND",'W.GLAMORGAN', " GWENT", "PWYS", 'SALOP', 'POWYS.','PENIN',"POW",
-           'PEMBROKESHIRE','RUTLAND','FLINTSHIRE','CARMARTHS', 'CARMS','NEWPORT',
+           'PEMBROKESHIRE','RUTLAND','FLINTSHIRE','CARMARTHS', 'CARMS','NEWPORT','BRISTOL CHANNEL','ANGLESEY',
           'NORTH AYRSHIRE', 'TORFAEN', 'NW OF IRELAND', 'SWANSEA', 'COUNTY DOWN', 'N LANARKSHIRE', 'DENBIGHSHIRE', 'PERTH & KINROSS', 'E DUNBARTON', 
           'COLERAINE', 'MERTHYR', 'ARGYL & BUTE', 'CARDIFF','CENTRAL', 'NP TALBOT', 'HGHLAND', 'GRAMPIAN', 'AYRSHIRE', 'INVERCLYDE', 'NPT', 'MONMOUTHSIRE', 'GWYNEDDD')
 
@@ -45,16 +45,16 @@ dat$region[dat$region == 'LINCS']<-"LINCOLNSHIRE"
 dat$region[dat$region %in% c('CUM', 'CUMB', 'CBR')]<-"CUMBRIA"
 dat$region[dat$region %in% c('SOUTH YORK', 'SOUTH YORKS', 'S. YORKSHIRE', 'S YORKSHIRE', 'S YORKS', 'S.YORKSHIRE')]<-"SOUTH YORKSHIRE"
 dat$region[dat$region %in% c('N.YORKS', 'N YORK', 'CLEVELAND')]<-"NORTH YORKSHIRE"
-dat$region[dat$region %in% c('DUR', 'DRHM')]<-"DURHAM"
+dat$region[dat$region %in% c('DUR', 'DRHM', 'DURHAM')]<-"COUNTY DURHAM"
 dat$region[dat$region %in% c('MANCHESTER', 'GT MANCHESTER','G MANCHESTER','GTR MCH', 'GTR MAN', "GTR MANCHESTER",
                              'GRT MANCHESTER', 'W MANCHESTER')]<-"GREATER MANCHESTER"
 dat$region[dat$region %in% c('HERFD&WOR', 'HERF&WOR','HER & WORC','HER & WORCS', 'HER & WO',
                              "H & W", 'HER&WORC','HEREFORD & WOR', 'HEREFORD&WORC', 'HER & WOR',
-                             'HER&WOR', 'HEREF')]<-"HEREFORDSHIRE & WORCESTERSHIRE"
+                             'HER&WOR', 'HEREF', 'HEREFORD')]<-"HEREFORDSHIRE & WORCESTERSHIRE"
 dat$region[dat$region %in% c('N.YORKS', 'N YORKS', 'N YORKSHIRE')]<-"NORTH YORKSHIRE"
 dat$region[dat$region %in% c('GLOUCS,', 'GLOUC', 'GLOUCS','GLOUCS.', "GL'SHIRE",'GLOS', "GLOUC'SHIRE")]<-"GLOUCESTERSHIRE"
-dat$region[dat$region %in% c('LEICS', 'LEICESTERSHI')]<-"LEICESTERSHIRE"
-dat$region[dat$region == 'TYN&WR']<-"TYNE & WEAR"
+dat$region[dat$region %in% c('LEICS', 'LEICESTERSHI', 'LEICESTER')]<-"LEICESTERSHIRE"
+dat$region[dat$region %in% c('TYN&WR', 'TYNESIDE')]<-"TYNE & WEAR"
 dat$region[dat$region %in% c('LANCS', 'LANCS.')]<-"LANCASHIRE"
 dat$region[dat$region == 'SOMER']<-"SOMERSET"
 dat$region[dat$region == 'BERKS.']<-"BERKSHIRE"
@@ -67,25 +67,22 @@ dat$region[dat$region == 'WORCS']<-"HEREFORDSHIRE & WORCESTERSHIRE"
 dat$region[dat$region == 'W MIDLANDS']<-"WEST MIDLANDS"
 dat$region[dat$region == 'CAMBS']<-"CAMBRIDGESHIRE"
 dat$region[dat$region == 'SHROPS']<-"SHROPSHIRE"
-dat$region[dat$region %in% c('NOTTS/DERBS', 'DERBS', 'DERBYS')]<-'DERBYSHIRE'
+dat$region[dat$region %in% c('NOTTS/DERBS', 'DERBS', 'DERBYS', 'DERBY')]<-'DERBYSHIRE'
 dat$region[dat$region == 'SHROPS']<-"SHROPSHIRE"
 dat$region[dat$region == 'OXON']<-'OXFORDSHIRE'
-dat$region[dat$region == 'WAR']<-'WARWICKSHIRE'
+dat$region[dat$region %in% c('WAR', 'WARWICK')]<-'WARWICKSHIRE'
 dat$region[dat$region %in% c("N'THUMBERLAND", "N'UMBERLND", "N'THMBLAND")]<-'NORTHUMBERLAND'
 dat$region[dat$region == 'W SUSSEX']<-'WEST SUSSEX'
 dat$region[dat$region == 'OXON']<-'OXFORDSHIRE'
-dat$region[dat$region == 'SUFFOL']<-'SUFFOLK'
+dat$region[dat$region %in% c('SUFFOL', 'EAST ANGLIA')]<-'SUFFOLK'
 dat$region[dat$region %in% c('NORTH LINCS', 'LINCOLSHIRE', 'LINCONSHIRE', 'NE LINCOLNSHIRE')]<-'LINCOLNSHIRE'
 dat$region[dat$region %in% c('W MID','W MIDS')]<-'WEST MIDLANDS'
 dat$region[dat$region %in% c('HEREFORDSHIRE', 'HERFORDSHIRE')]<-'HEREFORDSHIRE'
-dat$region[dat$region %in% c('CHESHIRE EAST')]<-'CHESHIRE'
+dat$region[dat$region %in% c('CHESHIRE EAST', 'CHESIRE')]<-'CHESHIRE'
 dat$region[dat$region %in% c('BATH & NE SOMERSET', 'NORTH SOMERSET')]<-'SOMERSET'
 dat$region[dat$region %in% c('CITY OF BRISTOL', 'AVON')]<-'BRISTOL'
-dat$region[dat$region %in% c('EAST YORKS', 'E YORKSHIRE')]<-'EAST YORKSHIRE'
+dat$region[dat$region %in% c('EAST YORKS', 'E YORKSHIRE', 'HUMBERSIDE')]<-'EAST YORKSHIRE'
 dat$region[dat$region %in% c('NORTHANTS')]<-'NORTHAMPTONSHIRE'
-
-dat$region[dat$locality == 'LEEDS' & dat$region == 'YORKSHIRE']<-'WEST YORKSHIRE'
-dat$region[dat$locality == 'DONCASTER' & dat$region == 'YORKSHIRE']<-'SOUTH YORKSHIRE'
 
 
 ## fix localities for regions with NA 
@@ -96,7 +93,7 @@ dat$region[dat$locality == "LONGTOWN ?"            ] <-'CUMBRIA'
 dat$region[dat$locality == "LONGTOWN"              ] <-'CUMBRIA'
 dat$region[dat$locality == "STOKE AREA"            ] <-'STAFFORDSHIRE'
 dat$region[dat$locality == "BIDDULPH"              ] <-'STAFFORDSHIRE'
-dat$region[dat$locality == "CONGLETON"             ] <-'CHESIRE'
+dat$region[dat$locality == "CONGLETON"             ] <-'CHESHIRE'
 dat$region[dat$locality == "PACKMOOR"              ] <-'STAFFORDSHIRE'
 dat$region[dat$locality == "BARNARD CSTL"          ] <-'COUNTY DURHAM'
 dat$region[dat$locality == "STONE AREA"            ] <-'STAFFORDSHIRE'
@@ -189,6 +186,10 @@ dat<-dat[!dat$locality == "BLAENAU FFESTINIOG",]
 dat<-dat[!dat$locality == "NORTH CHANNEL",] 
 dat<-dat[!dat$locality == "ISLE OF ANGLESEY",] 
 dat<-dat[!dat$locality == "CARMARTHEN BAY",] 
+
+dat$region[dat$locality == 'LEEDS' & dat$region == 'YORKSHIRE']<-'WEST YORKSHIRE'
+dat$region[dat$locality == 'DONCASTER' & dat$region == 'YORKSHIRE']<-'SOUTH YORKSHIRE'
+
 
 
 unique(dat$region)
