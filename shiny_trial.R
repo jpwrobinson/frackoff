@@ -1,6 +1,30 @@
 library(shiny)
 library(ggplot2)
+library(tidyverse)
+library(ggrepel)
+library(funk)
+library(here)
+library(rsconnect)
+theme_set(theme_bw())
 
+## Deployment info:
+## http://shiny.rstudio.com/articles/shinyapps.html
+
+setwd(here('frackoff'))
+dat<-read.csv(file = 'frack-clean.csv')
+
+
+t<- dat %>% filter(year > 1989) %>%
+  group_by(year,  region) %>%
+  summarise(q = length(ML)) %>% ungroup() %>%
+  group_by(region) %>% mutate(qq=cumsum(q)) 
+
+
+## y axis anchor
+anchor <- expand.grid(region = unique(t$region), year = 1989, qq = 0, q = 0)
+t <- rbind(anchor, data.frame(t))
+
+labs <- t %>% filter(region != '') %>% group_by(region) %>% summarise(max = max(qq))
 
 
 #### selects one graph at a time and highlights in red
