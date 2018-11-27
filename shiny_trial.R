@@ -8,11 +8,33 @@ library(shiny)
 library(plotly)
 library(gapminder)
 library(ggplot2)
+library(tidyverse)
+library(ggrepel)
+library(funk)
+library(here)
+library(rsconnect)
+theme_set(theme_bw())
 
+<<<<<<< HEAD
+=======
+## Deployment info:
+## http://shiny.rstudio.com/articles/shinyapps.html
+
+setwd(here('frackoff'))
+dat<-read.csv(file = 'frack-clean.csv')
+
+
+>>>>>>> e06758a057dfcacd762607498f8d3b72e79baa20
 t<- dat %>% filter(year > 1989) %>%
   group_by(year,  region) %>%
   summarise(q = length(ML)) %>% ungroup() %>%
   group_by(region) %>% mutate(qq=cumsum(q)) 
+<<<<<<< HEAD
+=======
+
+
+## y axis anchor
+>>>>>>> e06758a057dfcacd762607498f8d3b72e79baa20
 anchor <- expand.grid(region = unique(t$region), year = 1989, qq = 0, q = 0)
 t <- rbind(anchor, data.frame(t))
 
